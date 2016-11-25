@@ -17,9 +17,11 @@ type
     pnl_tgl: TPanel;
     pnl_bln: TPanel;
     pnl_thn: TPanel;
+    pnl_tgl2: TPanel;
     procedure lbl_dtkClick(Sender: TObject);
     procedure btn_klikClick(Sender: TObject);
     procedure btn1Click(Sender: TObject);
+    procedure pnl_tglClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,6 +58,7 @@ begin
   tgl := StrToInt(pnl_tgl.Caption);
   bln := StrToInt(pnl_bln.Caption);
   thn := StrToInt(pnl_thn.Caption);
+
   if (bln=1)or(bln=3)or(bln=5)or(bln=7)or(bln=8)or(bln=10)or(bln=12) then begin
     n:=31;
     end
@@ -113,6 +116,55 @@ end;
 procedure TFJam.btn1Click(Sender: TObject);
 begin
 FFoto.show;
+end;
+
+procedure TFJam.pnl_tglClick(Sender: TObject);
+var tgl,bln,thn,n : Integer;
+begin
+
+  tgl:=StrToInt(pnl_tgl.Caption);
+  bln:=StrToInt(pnl_bln.Caption);
+  thn:=StrToInt(pnl_thn.Caption);
+
+
+  if bln in [1,3,5,7,8,10,11] then begin
+    n:=31;
+    end
+    else
+  if bln in [4,6,9,11] then begin
+      n:=30;
+  end
+  else
+  if bln=2 then begin
+    if (thn mod 400=0) then begin
+    n:=29;
+    end
+    else
+    if (thn mod 100=0) then begin
+    n:=28;
+    end
+    else
+    if (thn mod 4=0) then begin
+    n:=29;
+    end
+    else
+    n:=28;
+  end;
+
+  tgl:=tgl+1;
+    if tgl > n then begin
+    tgl:=1;
+    bln:=bln+1;
+    if bln > 12 then begin
+      bln:=1;
+      thn:=thn+1;
+    end;
+  end;
+
+  pnl_tgl.Caption:=IntToStr(tgl);
+  pnl_bln.Caption:=IntToStr(bln);
+  pnl_thn.Caption:=IntToStr(thn);
+
 end;
 
 end.

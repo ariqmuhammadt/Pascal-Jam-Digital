@@ -1,6 +1,6 @@
 object FJam: TFJam
-  Left = 257
-  Top = 160
+  Left = 345
+  Top = 186
   Width = 316
   Height = 339
   Caption = 'Jam Digital'
@@ -86,6 +86,7 @@ object FJam: TFJam
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnClick = pnl_tglClick
   end
   object pnl_bln: TPanel
     Left = 112
@@ -114,6 +115,14 @@ object FJam: TFJam
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+  end
+  object pnl_tgl2: TPanel
+    Left = 56
+    Top = 8
+    Width = 201
+    Height = 17
+    Caption = 'dd-MM-yyyy'
+    TabOrder = 5
   end
   object xpmnfst1: TXPManifest
     Left = 128
