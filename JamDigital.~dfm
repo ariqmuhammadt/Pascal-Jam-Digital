@@ -78,7 +78,7 @@ object FJam: TFJam
     Top = 32
     Width = 73
     Height = 73
-    Caption = '31'
+    Caption = '30'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -48

@@ -31,7 +31,9 @@ var
 
 implementation
 
-uses Unit1;
+uses JamDigitalTgl;
+
+
 
 {$R *.dfm}
 
@@ -71,12 +73,14 @@ begin
         dtk := 0;
         mnt := 0;
         jam := 0;
+        tgl := 1;
         bln := bln+1;
-        if bln = 12 then begin
-          dtk := 0;
+        if bln = 13 then begin
+          dtk := 1;
           mnt := 0;
           jam := 0;
-          tgl := 0;
+          tgl := 1;
+          bln := 1;
           thn := thn+1;
         end;
        end;
