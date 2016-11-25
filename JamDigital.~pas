@@ -48,7 +48,7 @@ end;
 
 procedure TFJam.btn_klikClick(Sender: TObject);
 var
-  dtk,mnt,jam,tgl,bln,thn : Integer;
+  dtk,mnt,jam,tgl,bln,thn,n : Integer;
 begin
   dtk := StrToInt(lbl_dtk.Caption);
   mnt := StrToInt(lbl_mnt.Caption);
@@ -56,39 +56,51 @@ begin
   tgl := StrToInt(pnl_tgl.Caption);
   bln := StrToInt(pnl_bln.Caption);
   thn := StrToInt(pnl_thn.Caption);
-  dtk := dtk+1;
-  if dtk = 60 then begin
-    dtk := 0;
-    mnt := mnt+1;
-    if mnt = 60 then begin
-      dtk := 0;
-      mnt := 0;
-      jam := jam+1;
-      if jam = 24 then begin
-       dtk := 0;
-       mnt := 0;
-       jam := 0;
-       tgl := tgl+1;
-       if tgl = 31 then begin
-        dtk := 0;
-        mnt := 0;
-        jam := 0;
-        tgl := 1;
-        bln := bln+1;
-        if bln = 13 then begin
-          dtk := 1;
-          mnt := 0;
-          jam := 0;
-          tgl := 1;
-          bln := 1;
-          thn := thn+1;
-        end;
-       end;
+  if (bln=1)or(bln=3)or(bln=5)or(bln=7)or(bln=8)or(bln=10)or(bln=12) then begin
+    n:=31;
+    end
+    else
+  if (bln=4)or(bln=6)or(bln=9)or(bln=11) then begin
+      n:=30;
+  end
+  else
+  if bln=2 then begin
+    if (thn mod 400=0) then begin
+    n:=29;
+    end
+    else
+    if (thn mod 100=0) then begin
+    n:=28;
+    end
+    else
+    if (thn mod 4=0) then begin
+    n:=29;
+    end
+    else
+    n:=28;
+  end;
+  dtk:=dtk+1;
+  if dtk > 59 then begin
+    dtk:=0;
+    mnt:=mnt+1;
+    if mnt > 59 then begin
+      mnt:=0;
+      jam:=jam+1;
+      if jam > 23 then begin
+        jam:=0;
+        tgl:=tgl+1;
+          if tgl > n then begin
+            tgl:=1;
+            bln:=bln+1;
+            if bln > 12 then begin
+              bln:=1;
+              thn:=thn+1;
+            end;
+          end;
       end;
+
     end;
   end;
-  if bln = 13 then bln:=0;
-  if tgl = 32 then tgl:=0;
 
   lbl_dtk.Caption := IntToStr(dtk);
   lbl_mnt.Caption := IntToStr(mnt);
