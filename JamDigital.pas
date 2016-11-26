@@ -17,11 +17,19 @@ type
     pnl_tgl: TPanel;
     pnl_bln: TPanel;
     pnl_thn: TPanel;
-    pnl_tgl2: TPanel;
+    lbl_titikdua: TLabel;
+    Label1: TLabel;
+    lbl_tanggal: TLabel;
+    lbl_bulan: TLabel;
+    lbl_tahun: TLabel;
+    pnl_tdate: TPanel;
     procedure lbl_dtkClick(Sender: TObject);
     procedure btn_klikClick(Sender: TObject);
     procedure btn1Click(Sender: TObject);
     procedure pnl_tglClick(Sender: TObject);
+    procedure pnl_blnClick(Sender: TObject);
+    procedure pnl_thnClick(Sender: TObject);
+    procedure pnl_tdateClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -164,6 +172,39 @@ begin
   pnl_tgl.Caption:=IntToStr(tgl);
   pnl_bln.Caption:=IntToStr(bln);
   pnl_thn.Caption:=IntToStr(thn);
+
+end;
+
+procedure TFJam.pnl_blnClick(Sender: TObject);
+var bln,thn :Integer;
+begin
+  bln:=StrToInt(pnl_bln.Caption);
+
+  bln:=bln+1;
+    if bln > 12 then begin
+      bln:=1;
+      thn:=thn+1;
+    end;
+   pnl_bln.Caption:=IntToStr(bln);
+end;
+
+procedure TFJam.pnl_thnClick(Sender: TObject);
+var thn :Integer;
+begin
+  thn:=StrToInt(pnl_thn.Caption);
+  thn:=thn+1;
+  pnl_thn.Caption:=IntToStr(thn);
+end;
+
+procedure TFJam.pnl_tdateClick(Sender: TObject);
+var tgl:TDate;
+begin
+  DateSeparator:='-';
+  ShortDateFormat:='dd-MM-yyyy';
+
+  tgl:=StrToDate(pnl_tdate.Caption);
+  tgl:=tgl+1;
+  pnl_tdate.Caption:=DateToStr(tgl);
 
 end;
 

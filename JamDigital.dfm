@@ -15,9 +15,9 @@ object FJam: TFJam
   TextHeight = 13
   object lbl_dtk: TLabel
     Left = 200
-    Top = 112
-    Width = 76
-    Height = 75
+    Top = 120
+    Width = 73
+    Height = 67
     Caption = '58'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -29,9 +29,9 @@ object FJam: TFJam
   end
   object lbl_jam: TLabel
     Left = 24
-    Top = 112
-    Width = 76
-    Height = 75
+    Top = 120
+    Width = 73
+    Height = 67
     Caption = '23'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -43,9 +43,9 @@ object FJam: TFJam
   end
   object lbl_mnt: TLabel
     Left = 112
-    Top = 112
-    Width = 76
-    Height = 75
+    Top = 120
+    Width = 73
+    Height = 67
     Caption = '59'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -55,8 +55,55 @@ object FJam: TFJam
     ParentFont = False
     OnClick = lbl_dtkClick
   end
+  object lbl_titikdua: TLabel
+    Left = 99
+    Top = 120
+    Width = 17
+    Height = 61
+    Caption = ':'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -53
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 187
+    Top = 120
+    Width = 17
+    Height = 61
+    Caption = ':'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -53
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lbl_tanggal: TLabel
+    Left = 40
+    Top = 16
+    Width = 39
+    Height = 13
+    Caption = 'Tanggal'
+  end
+  object lbl_bulan: TLabel
+    Left = 136
+    Top = 16
+    Width = 27
+    Height = 13
+    Caption = 'Bulan'
+  end
+  object lbl_tahun: TLabel
+    Left = 216
+    Top = 16
+    Width = 31
+    Height = 13
+    Caption = 'Tahun'
+  end
   object btn_klik: TBitBtn
-    Left = 192
+    Left = 200
     Top = 224
     Width = 73
     Height = 33
@@ -101,6 +148,7 @@ object FJam: TFJam
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    OnClick = pnl_blnClick
   end
   object pnl_thn: TPanel
     Left = 200
@@ -115,17 +163,19 @@ object FJam: TFJam
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+    OnClick = pnl_thnClick
   end
-  object pnl_tgl2: TPanel
-    Left = 56
-    Top = 8
-    Width = 201
+  object pnl_tdate: TPanel
+    Left = 40
+    Top = 272
+    Width = 225
     Height = 17
-    Caption = 'dd-MM-yyyy'
+    Caption = '01-01-2016'
     TabOrder = 5
+    OnClick = pnl_tdateClick
   end
   object xpmnfst1: TXPManifest
-    Left = 128
+    Left = 136
     Top = 224
   end
 end
